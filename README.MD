@@ -19,9 +19,9 @@ Sau quá trình huấn luyện với các bộ tham số khác nhau, nhóm đã 
 
 | Mô hình/Tham số | Learning rate cố định | Learning rate thay đổi |
 | --------------- | --------------------- | ---------------------- |
-| ResNet50        | 0.5580                | 0.3393                 |
-| ResNet101       | 0.6696                | 0.3170                 |
-| ResNet152       | 0.6250                | 0.6339                 |
+| ResNet50        | 0.6339                | 0.7188                 |
+| ResNet101       | 0.5804                | 0.7723                 |
+| ResNet152       | 0.6295                | 0.7500                 |
 
 ### Kết hợp với mô hình LSTM
 
