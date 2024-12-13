@@ -27,9 +27,9 @@ Sau quá trình huấn luyện với các bộ tham số khác nhau, nhóm đã 
 
 | Tham số/Mô hình                                | ResNet50 | ResNet101 | ResNet152 |
 | ---------------------------------------------- | -------- | --------- | --------- |
-| Batch size = 8, lr=0.0001                      | 0.6964   | 0.808     | 0.6651    |
+| Batch size = 8, lr=0.0001                      | 0.6964   | 0.808     | 0.7545    |
 | Batch size = 8, lr=0.00005                     | 0.8616   | -         | -         |
-| Batch size = 16, lr=0.0001                     | 0.7946   | 0.683     | 0.7366    |
+| Batch size = 16, lr=0.0001                     | 0.7946   | 0.683     | 0.7723    |
 | Batch size = 16, lr=0.0001 + ReduceLROnPlateau | 0.8705   | -         | -         |
 | Batch size = 16, lr=0.00005                    | 0.7946   | -         | -         |
 
