@@ -7,7 +7,14 @@ from models.early_stopping import EarlyStopping
 
 class Trainer:
     def __init__(
-        self, dataloader_train, dataloader_val, model, optimizer, criterion, epochs=1
+        self,
+        dataloader_train,
+        dataloader_val,
+        model,
+        optimizer,
+        criterion,
+        epochs=1,
+        scheduler=None,
     ):
         self.dataloader_train = dataloader_train
         self.model = model
@@ -22,6 +29,9 @@ class Trainer:
         self.history_train_acc = []
         self.epoch_after_early_stop = 1
         self.early_stop_epoch = 0
+
+        # Thêm scheduler
+        self.scheduler = scheduler
 
     def val(self, model_val, device):
         torch.cuda.empty_cache()
@@ -91,7 +101,19 @@ class Trainer:
             self.history_average_train_loss.append(np.average(current_loss_train))
             self.history_average_train_acc.append(np.average(current_acc_train))
             current_average_loss_val, current_loss_val = self.val(model.eval(), device)
-            print(f"Average loss val: {current_average_loss_val}")
+
+            # Thêm scheduler.step
+            if self.scheduler:
+                if isinstance(
+                    self.scheduler, torch.optim.lr_scheduler.ReduceLROnPlateau
+                ):
+                    self.scheduler.step(
+                        current_average_loss_val
+                    )  # Với ReduceLROnPlateau
+                    print(f"Learning rate hiện tại: {optimizer.param_groups[0]['lr']}")
+
+            print(f"current_average_loss_val: {current_average_loss_val}")
+
             if early_stopping.early_stop:
                 index_after_early_stop += 1
                 print(f"epoch {index_after_early_stop} after early stop")
