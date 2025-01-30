@@ -1,6 +1,6 @@
 # Giới thiệu
 
-Dự án nghiên cứu bài toán phân loại video sử dụng mô hình học sâu kết hợp giữa CNN và RNN.
+Dự án nghiên cứu bài toán phân loại video ngắn sử dụng mô hình học sâu kết hợp giữa CNN và RNN.
 
 # Mô tả
 
